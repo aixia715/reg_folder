@@ -72,11 +72,11 @@ if __name__ == '__main__':
         os.makedirs(target)
     for i, path in enumerate(all_path):
         try:
-            print(f"({i + 1}/{len(all_path)})拷贝文件: " + path, end="")
+            print(f"({i + 1}/{len(all_path)})拷贝文件: " + path, end="", flush=True)
             shutil.copy(path, target)
-            print(" --成功")
+            print(" --成功", flush=True)
         except shutil.SameFileError as e:
-            print(" --失败, 原因: " + str(e))
+            print(" --失败, 原因: " + str(e), flush=True)
             # 如果拷贝的文件和目标文件是同一个文件, 则输出
 
-    print("拷贝完成")
+    input("拷贝完成, 按回车结束")
